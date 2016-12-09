@@ -1,0 +1,31 @@
+
+arabic-news-labr.txt is an Arabic corpus contains a mixture of formal and spoken (dialectal) Arabic.
+
+It is collected and processed from 5 different sources.
+
+
+1. Quran text, http://tanzil.net (we used the simple-text version)
+2. Watan-2004, (Abbas et al., 2011), https://sites.google.com/site/mouradabbas9/corpora
+3. CNN-arabic, (Saad and Ashour, 2010) OSAC: Open Source Arabic Corpus
+4. BBC-arabic, (Saad and Ashour, 2010) OSAC: Open Source Arabic Corpus
+5. Arabic Book Reviews, (Aly and  Atiya, 2013) LABR: Large Scale Arabic Book Reviews, http://www.mohamedaly.info/datasets/labr
+
+
+file size: 181MB
+
+---------------------------
+source		word count
+---------------------------
+Quran		751,291
+watan-2004	106,289,288
+cnn-arabic	23,984,550
+bbc-arabic	19,833,141
+book-reviews	38,065,922
+===========================
+TOTOAL:		188,924,192 words
+	
+
+
+By: A. Aziz Altowayn May/3/2016
+
+
