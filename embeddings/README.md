@@ -14,7 +14,7 @@ Sample queries:
 Analogy
 
 ```
-$./word2vec/word-analogy arabic-news.bin
+$./word2vec/word-analogy arabic-news.bin
 Enter three words (EXIT to break): السعودية الرياض اليابان
 
 Word: السعودية  Position in vocabulary: 243
