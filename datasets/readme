@@ -1,0 +1,31 @@
+
+DATA INFO
+
+1. Twitter:
+    (1589, 2) ASTD
+    (1951, 2) ArTwitter
+    (754 , 2) QRCI (a bit noisy)
+
+2. LABR book reviews:
+    (16448, 2) LABR
+    
+3. MPQA Arabic:
+    (9996, 2) MPQA
+
+
+LABELS
+    In 1. and 2. labels are positive "1" or negative "0"
+    In 3. labels are neutral "1" or subjective "0"    
+    
+
+SOURCE and Licences
+
+1. Tweets
+    (Nabil et al., 2015) ASTD: Arabic sentiment tweets dataset, http://www.mohamedaly.info/datasets/astd
+    (Abdulla et al., 2013) Twitter Data set for Arabic Sentiment Analysis Data Set, https://archive.ics.uci.edu/ml/datasets/Twitter+Data+set+for+Arabic+Sentiment+Analysis
+    (Mourad and Darwish, 2013) Subjectivity and sentiment analysis of modern standard arabic and arabic microblogs, www.aclweb.org/anthology/W13-1608
+
+2. (Aly and  Atiya, 2013)LABR: Large Scale Arabic Book Reviews, http://www.mohamedaly.info/datasets/labr
+
+3. (Banea et al., 2010) Multilingual subjectivity: Are more languages better?, http://lit.csci.unt.edu/research/downloads
+        
