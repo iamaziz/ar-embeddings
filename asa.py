@@ -10,7 +10,7 @@ import argparse
 from logging import info, basicConfig, INFO
 # -- 3rd party -- #
 import pandas as pd
-from gensim.models import Word2Vec
+from gensim.models import KeyedVectors
 import numpy as np
 import matplotlib.pyplot as plt
 from nltk.tokenize import wordpunct_tokenize
@@ -21,7 +21,7 @@ from sklearn.svm import LinearSVC, NuSVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn import metrics
 from sklearn.preprocessing import Imputer
-from sklearn import cross_validation
+from sklearn.model_selection import train_test_split
 
 LOG_HEAD = '[%(asctime)s] %(levelname)s: %(message)s'
 basicConfig(format=LOG_HEAD, level=INFO)
@@ -81,20 +81,22 @@ class ArSentiment(object):
             self.classify(c, detailed, plot_roc)
 
         avg_f1 = 0
+        info('results ...')
         for k, v in self.accuracies.items():
-            string = 'MacAvg. {:.2f}% F1. {:.2f}% P. {:.2f} R. {:.2f} : {}'
+            string = '\tMacAvg. {:.2f}% F1. {:.2f}% P. {:.2f} R. {:.2f} : {}'
             print(string.format(v[0] * 100, v[1] * 100, v[2] * 100, v[3] * 100, k))
             avg_f1 += float(v[1])
 
-        print('OVERALL avg F1 test {:.2f}%'.format((avg_f1 / len(self.accuracies)) * 100))
+        #print('OVERALL avg F1 test {:.2f}%'.format((avg_f1 / len(self.accuracies)) * 100))
+        info("DONE!")
 
     @staticmethod
     def load_vectors(model_name, binary=True):
         """load the pre-trained embedding model"""
         if binary:
-            w2v_model = Word2Vec.load_word2vec_format(model_name, binary=True)
+            w2v_model = KeyedVectors.load_word2vec_format(model_name, binary=True)
         else:
-            w2v_model = Word2Vec.load(model_name)
+            w2v_model = KeyedVectors.load(model_name)
 
         w2v_model.init_sims(replace=True)  # to save memory
         vocab, vector_dim = w2v_model.syn0.shape
@@ -106,7 +108,7 @@ class ArSentiment(object):
         # shuffle df
         dataset = dataset.iloc[np.random.permutation(len(dataset))]
         # split train/test
-        train_df, test_df = cross_validation.train_test_split(dataset, train_size=self.split)
+        train_df, test_df = train_test_split(dataset, train_size=self.split)
 
         string_ = 'dataset {} {}. Split: {} training and {} testing.'
         info(string_.format(dataset_in, dataset.shape, len(train_df), len(test_df)))
@@ -155,6 +157,7 @@ class ArSentiment(object):
             except KeyError:
                 pass  # if a word is not in the embeddings' vocabulary discard it
 
+        np.seterr(divide='ignore', invalid='ignore')
         feature_vec = np.divide(feature_vec, retrieved_words)
 
         return feature_vec
@@ -254,4 +257,4 @@ if __name__ == "__main__":
     dataset_path = args.dataset if args.dataset else "datasets/mpqa-ar.csv"
 
     # run
-    ArSentiment(embeddings_path, dataset_path, plot_roc=True)
+    ArSentiment(embeddings_path, dataset_path, plot_roc=False)
