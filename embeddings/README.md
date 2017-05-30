@@ -9,7 +9,21 @@ Trained on word2vec, using the following command:
 
 `$ ./word2vec -train $CORPUS -output $OUT -cbow 1 -size 300 -window 10 -negative 25 -hs 0 -sample 1e-4 -threads 20 -binary 1 -iter 15`
 
-Sample queries:
+
+NOTE: If you use this, pls cite the paper. Many thanks!
+```
+@inproceedings{altowayan2016word,
+  title={Word embeddings for Arabic sentiment analysis},
+  author={Altowayan, A. Aziz and Tao, Lixin},
+  booktitle={Big Data (Big Data), 2016 IEEE International Conference on},
+  pages={3820--3825},
+  year={2016},
+  organization={IEEE}
+}
+```
+
+
+### Sample queries:
 
 Analogy
 
@@ -128,4 +142,4 @@ Word: جيد  Position in vocabulary: 893
 ```
 
 
-> If you use this, **please cite the paper**, many thanks!
+
