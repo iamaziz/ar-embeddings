@@ -1,4 +1,16 @@
+
+<hr>
+
+**UPDATE**
+
+The model (`arabic-news.tar.gz`) consists of pre-trained embedding vectors trained on the `arabic-news.txt` corpus.
+Both the model and the dataset are available for download on HuggingFace [arabic-news-embeddings](https://huggingface.co/azizalto/arabic-news-embeddings).
+
+<hr>
+
+<!--
 arabic-news.tar.gz (download [here](https://drive.google.com/open?id=0ByiDbCx0i9pEQV9ZUEFIb0hwMmM)) is a pre-trained vectors trained on the arabic-news.txt corpus (download [here](https://drive.google.com/open?id=0ByiDbCx0i9pESG5vRG05aXJ4TFU)).
+-->
 
 It contains around 159K vocabulary (of dimension 300).
 
